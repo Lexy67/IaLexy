@@ -8,7 +8,7 @@ import gradio as gr
 from groq import Groq
 
 # ──────────────────────────────────────────────
-# Configuración
+# Configuració
 # ──────────────────────────────────────────────
 ENVIRONMENTS = {
     "Roblox Luau": (
