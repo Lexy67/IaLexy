@@ -15,16 +15,12 @@ def get_groq_client(api_key: str = None):
 
 def clean_lua_code(text: str) -> str:
     """Extrae y purifica el código Lua eliminando etiquetas y formateo sobrante."""
-    if "
-```lua" in text:
-        match = re.search(r"
-```lua\n(.*?)```", text, re.DOTALL)
+    if "```lua" in text:
+        match = re.search(r"```lua\n(.*?)```", text, re.DOTALL)
         if match:
             return match.group(1).strip()
-    elif "
-```" in text:
-        match = re.search(r"
-```\n?(.*?)```", text, re.DOTALL)
+    elif "```" in text:
+        match = re.search(r"```\n?(.*?)```", text, re.DOTALL)
         if match:
             return match.group(1).strip()
     return text.strip()
@@ -181,6 +177,3 @@ with gr.Blocks(theme=gr.themes.Soft(primary_hue="emerald"), css=css, title="Lua 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 7860))
     demo.queue().launch(server_name="0.0.0.0", server_port=port)
-```eof
-
-Aquí tienes el segundo: **`Dockerfile`**
